@@ -13,12 +13,15 @@ const Dashboard = () => {
   const handleCreateTask = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/api/v1/tasks/create", {
-        title,
-        task,
-        priority: priority.toLowerCase(),
-        status: status.toLowerCase(),
-      });
+      await axios.post(
+        "https://fullstack-todoapp-ihut.onrender.com/api/v1/tasks/create",
+        {
+          title,
+          task,
+          priority: priority.toLowerCase(),
+          status: status.toLowerCase(),
+        }
+      );
       // Optionally, refresh the task list or clear the form
       setTitle("");
       setTask("");

@@ -14,7 +14,7 @@ const TaskList = () => {
   const fetchTasks = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/tasks/all"
+        "https://fullstack-todoapp-ihut.onrender.com/api/v1/tasks/all"
       );
       setTasks(response.data);
     } catch (error) {
@@ -25,9 +25,12 @@ const TaskList = () => {
   // Update task
   const handleUpdateTask = async (taskId) => {
     try {
-      await axios.patch(`http://localhost:8000/api/v1/tasks/update/${taskId}`, {
-        task: editValue,
-      });
+      await axios.patch(
+        `https://fullstack-todoapp-ihut.onrender.com/api/v1/tasks/update/${taskId}`,
+        {
+          task: editValue,
+        }
+      );
       setEditTaskId(null);
       setEditValue("");
       fetchTasks();
@@ -39,7 +42,9 @@ const TaskList = () => {
   // Delete task
   const handleDeleteTask = async (taskId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/tasks/delete/${taskId}`);
+      await axios.delete(
+        `https://fullstack-todoapp-ihut.onrender.com/api/v1/tasks/delete/${taskId}`
+      );
       fetchTasks();
     } catch (error) {
       console.error("Error deleting task:", error);
