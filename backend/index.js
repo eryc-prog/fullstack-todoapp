@@ -18,10 +18,10 @@ connectDb();
 const app = express();
 
 // TO DO: create dotenv file and add the port number
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-  console.log("Server is running on port ${PORT}");
-});
+const port = process.env.PORT || 4000;
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
 
 // Middlewares
 app.use(express.json());
@@ -37,6 +37,6 @@ app.get("/", (req, res) => {
 app.use("/api/v1/tasks", taskRouter);
 // app.use("/api/v1/users", userRouter);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
