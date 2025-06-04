@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: fullstack-todoapp
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: your-mongodb
+          property: connectionString
